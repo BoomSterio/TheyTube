@@ -13,11 +13,13 @@ function App() {
             <Header/>
             <div className='app__page'>
                 <Sidebar/>
-                <Switch>
-                    <Route exact path={'/'} render={() => <HomePage/>}/>
-                    <Route path={'/search/:searchTerm?'} render={() => <SearchPage/>}/>
-                    <Route path={'*'} render={() => <div>404<br/>PAGE NOT FOUND</div>}/>
-                </Switch>
+                <div className='app__content'>
+                    <Switch>
+                        <Route exact path={'/'} render={() => <HomePage/>}/>
+                        <Route path={'/search/:searchTerm?'} render={() => <SearchPage/>}/>
+                        <Route path={'*'} render={() => <div>404<br/>PAGE NOT FOUND</div>}/>
+                    </Switch>
+                </div>
             </div>
         </div>
     )
@@ -28,7 +30,7 @@ const MainApp = () => {
         <BrowserRouter>
             {/*todo: implement store with Redux*/}
             {/*<Provider store={store}>*/}
-                <App/>
+            <App/>
             {/*</Provider>*/}
         </BrowserRouter>
     )

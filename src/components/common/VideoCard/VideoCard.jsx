@@ -2,7 +2,7 @@ import React from 'react'
 import './VideoCard.css'
 import {Avatar} from '@material-ui/core'
 
-const VideoCard = ({image, title, channelTitle, views, timestamp, channelImage}) => {
+const VideoCard = ({image, title, channelTitle, views, timestamp, channelImage, verifiedChannel}) => {
     return (
         <div className={'video'}>
             <img className='video__thumbnail' src={image} alt="thumbnail"/>
@@ -11,7 +11,7 @@ const VideoCard = ({image, title, channelTitle, views, timestamp, channelImage})
                 <div className="video__text">
                     <h4>{title}</h4>
                     <p>{channelTitle}</p>
-                    <p>{views} ∙ {timestamp}</p>
+                    <p>{views} views ∙ {timestamp}</p>
                 </div>
             </div>
         </div>

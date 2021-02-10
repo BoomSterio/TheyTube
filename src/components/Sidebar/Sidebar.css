@@ -1,5 +1,5 @@
 .sidebar {
-    flex: 0.14;
+    flex: .14;
 }
 
 .sidebar > hr {
@@ -7,4 +7,10 @@
     border: 0;
     background-color: #e6e6e6;
     margin: 10px 0;
+}
+
+@media (max-width: 1300px) {
+    .sidebar {
+        flex: .08;
+    }
 }

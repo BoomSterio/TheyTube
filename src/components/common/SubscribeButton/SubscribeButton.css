@@ -1,0 +1,24 @@
+.subscribeButton {
+    display: flex;
+    align-items: center;
+    color: #909090;
+}
+
+.subscribeButton__button {
+    height: 37px !important;
+    text-align: center;
+    background-color: #ececec;
+    border-radius: 3px;
+}
+
+.subscribeButton__button > h5 {
+    color: #636465;
+    padding: 8px 18px;
+    text-transform: uppercase;
+    text-weight: 500;
+    font-size: 14px;
+}
+
+.subscribeButton__notifications {
+    margin-left: 15px;
+}
