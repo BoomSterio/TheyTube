@@ -26,9 +26,13 @@ const Header = () => {
                 </Link>
             </div>
             <div className="header__input">
-                <input value={searchTerm} onChange={handleSearchChange} placeholder={'Search'} type={'text'}/>
+                <div className="header__i">
+                    <input value={searchTerm} onChange={handleSearchChange} placeholder={'Search'} type={'text'}/>
+                </div>
                 <Link to={`/search/${searchTerm}`}>
-                    <SearchIcon className={'header__inputButton'}/>
+                    <button className={'header__inputButton'}>
+                        <SearchIcon />
+                    </button>
                 </Link>
             </div>
             <div className="header__icons">

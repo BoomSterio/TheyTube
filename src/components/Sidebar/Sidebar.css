@@ -13,4 +13,9 @@
     .sidebar {
         flex: .08;
     }
+
+    .sidebar > hr {
+        margin: 0;
+        background-color: transparent;
+    }
 }

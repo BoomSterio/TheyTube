@@ -8,7 +8,7 @@
 .channelRow__text {
     display: flex;
     flex-direction: column;
-    margin-right: 15px;
+    margin-right: 20px;
     margin-bottom: 25px;
 }
 
@@ -32,7 +32,7 @@
 .channelRow__avatar {
     width: 136px !important;
     height: 136px !important;
-    margin: 10px 15px 10px 60px;
+    margin: 10px 60px 10px 60px;
 }
 
 .channelRow__verified {
@@ -46,6 +46,10 @@
         width: 90px !important;
         height: 90px !important;
         margin: 10px 15px 10px 25px;
+    }
+
+    .channelRow__text {
+        margin-right: 10px;
     }
 
     .channelRow__description {
