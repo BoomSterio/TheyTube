@@ -4,6 +4,10 @@
     width: 348px;
 }
 
+.video:hover .video__more {
+    color: darkgrey;
+}
+
 .video__thumbnail {
     height: 195px;
     width: 348px;
@@ -22,11 +26,28 @@
 
 .video__text > h4{
     margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .video__text > p {
     font-size: 14px;
     color: #696969
+}
+
+.video__more {
+    cursor: pointer;
+    color: transparent;
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+}
+
+.video__more:hover {
+    color: #606060 !important;
 }
 
 .video__avatar {

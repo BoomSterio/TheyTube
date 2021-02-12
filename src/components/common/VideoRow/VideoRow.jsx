@@ -1,7 +1,8 @@
 import React from 'react'
 import './VideoRow.css'
 import {Avatar} from '@material-ui/core'
-import {CheckCircle as VerifiedIcon, MoreVert} from '@material-ui/icons'
+import {MoreVert} from '@material-ui/icons'
+import ChannelTitle from '../ChannelTitle/ChannelTitle'
 
 const VideoRow = ({image, title, description, channelTitle, views, timestamp, channelImage, verifiedChannel}) => {
     return (
@@ -12,9 +13,7 @@ const VideoRow = ({image, title, description, channelTitle, views, timestamp, ch
                 <p>{views} views ∙ {timestamp}</p>
                 <div className={'videoRow__channel'}>
                     <Avatar className={'videoRow__avatar'} src={channelImage}/>
-                    <h4 className={'videoRow__channelName'}>
-                        {channelTitle} {verifiedChannel && <VerifiedIcon className={'videoRow__verified'}/>}
-                    </h4>
+                    <ChannelTitle title={channelTitle} verified={verifiedChannel}/>
                 </div>
                 <p className={'videoRow__description'}>{description}</p>
             </div>

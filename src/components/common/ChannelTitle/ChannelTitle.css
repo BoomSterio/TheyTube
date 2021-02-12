@@ -1,0 +1,10 @@
+.channelTitle {
+    display: flex;
+    align-items: center;
+    font-weight: 400 !important;
+}
+
+.channelTitle__verified {
+    font-size: 13px !important;
+    margin-left: 3px;
+}

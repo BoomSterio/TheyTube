@@ -5,7 +5,7 @@
 }
 
 .videoRow:hover > .videoRow__more {
-    display: block !important;
+    color: darkgrey;
 }
 
 .videoRow__info {
@@ -37,29 +37,20 @@
     margin-bottom: 12px;
 }
 
-.videoRow__channelName {
-    display: flex;
-    align-items: center;
-    font-weight: 400 !important;
-}
-
 .videoRow__avatar {
     width: 24px !important;
     height: 24px !important;
     margin-right: 8px;
 }
 
-.videoRow__verified {
-    font-size: 13px !important;
-    margin-left: 3px;
-}
-
-
-
 .videoRow__more {
     cursor: pointer;
-    display: none !important;
+    color: transparent;
     margin-left: auto;
+}
+
+.videoRow__more:hover {
+    color: #606060 !important;
 }
 
 @media (max-width: 900px) {
