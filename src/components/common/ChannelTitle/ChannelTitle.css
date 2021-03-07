@@ -1,7 +1,16 @@
 .channelTitle {
     display: flex;
     align-items: center;
+    color: #606060;
+}
+
+.channelTitle__title {
     font-weight: 400 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 .channelTitle__verified {

@@ -24,6 +24,7 @@
 }
 
 .videoRow__thumbnail {
+    min-width: 360px;
     width: 360px;
     height: 202px;
     object-fit: cover;
@@ -54,11 +55,7 @@
 }
 
 @media (max-width: 900px) {
-    .videoRow__thumbnail {
-        width: 300px;
-        height: 168px;
-        object-fit: cover;
-    }
+
 
     .videoRow__description,
     .videoRow__info > h3 {

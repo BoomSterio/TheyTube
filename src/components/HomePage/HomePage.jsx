@@ -36,8 +36,8 @@ const HomePage = () => {
                 <VideoCard
                     image={'https://i.ytimg.com/vi/FStL8R_ENVE/maxresdefault.jpg'}
                     title={'Game of Thrones || Don\'t Panic'}
-                    channelTitle={'XNewYorksFinestX'}
-                    views={'40000'}
+                    channelTitle={'XTestChannelX'}
+                    views={'340512'}
                     timestamp={'2021-02-12T06:44:22Z'}
                     verifiedChannel
                 />

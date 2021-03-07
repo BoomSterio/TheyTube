@@ -8,12 +8,25 @@ import NotificationsIcon from '@material-ui/icons/Notifications'
 import {Link} from 'react-router-dom'
 import {AccountCircle, Mic, MoreVert} from '@material-ui/icons'
 import ProfileMenuPopover from './ProfileMenuPopover/ProfileMenuPopover'
+import Button from '@material-ui/core/Button'
+import Tooltip from '@material-ui/core/Tooltip'
+import {Fade} from '@material-ui/core'
+import ToolIcon from '../common/ToolIcon/ToolIcon'
+import {useDispatch, useSelector} from 'react-redux'
+import {actions} from '../../redux/search-reducer'
 
 const Header = () => {
-    const [searchTerm, setSearchTerm] = useState('')
+    const query = useSelector(store => store.searchPage.term.query)
+    const [searchQuery, setSearchQuery] = useState(query)
+
+    const dispatch = useDispatch()
 
     const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value)
+        setSearchQuery(e.target.value)
+    }
+
+    const handleSearchClick = () => {
+        dispatch(actions.setTerm({query: searchQuery}))
     }
 
     const isAuth = JSON.parse(sessionStorage.getItem('authUser')).isAuth
@@ -22,7 +35,7 @@ const Header = () => {
     return (
         <div className='header'>
             <div className="header__left">
-                <MenuRoundedIcon/>
+                <MenuRoundedIcon style={{color: '#606060'}}/>
                 <Link to={'/'} style={{height: '19px'}}>
                     <img
                         src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/1920px-YouTube_Logo_2017.svg.png'}
@@ -31,9 +44,9 @@ const Header = () => {
             </div>
             <div className="header__input">
                 <div className="header__i">
-                    <input value={searchTerm} onChange={handleSearchChange} placeholder={'Search'} type={'text'}/>
+                    <input value={searchQuery} onChange={handleSearchChange} placeholder={'Search'} type={'text'}/>
                 </div>
-                <Link to={`/search/${searchTerm}`}>
+                <Link to={searchQuery ? `/search/${searchQuery}` : '#'} onClick={handleSearchClick}>
                     <button className={'header__inputButton'}>
                         <SearchIcon/>
                     </button>
@@ -41,20 +54,22 @@ const Header = () => {
                 <Mic className={'header__mic'}/>
             </div>
             <div className="header__icons">
-                <VideoCallIcon className={'header__icon'}/>
-                <AppsIcon className={'header__icon'}/>
+                <ToolIcon Icon={VideoCallIcon} title="Create"/>
+                <ToolIcon Icon={AppsIcon} title="Apps"/>
                 {isAuth ?
                     <>
-                        <NotificationsIcon className={'header__icon'}/>
+                        <ToolIcon Icon={NotificationsIcon} title="Notifications"/>
                         <ProfileMenuPopover avatar={avatar}/>
                     </>
                     :
                     <>
-                        <MoreVert className={'header__icon'}/>
-                        <button className={'header__loginButton'}>
-                            <AccountCircle/>
-                            <p>Log in</p>
-                        </button>
+                        <ToolIcon Icon={MoreVert} title="Show more"/>
+                        <Link to={'/login'}>
+                            <Button className={'header__loginButton'}>
+                                <AccountCircle/>
+                                <p>Log in</p>
+                            </Button>
+                        </Link>
                     </>
                 }
             </div>

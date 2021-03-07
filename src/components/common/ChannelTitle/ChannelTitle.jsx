@@ -4,9 +4,10 @@ import './ChannelTitle.css'
 
 const ChannelTitle = ({title, verified}) => {
     return (
-        <p className={'channelTitle'}>
-            {title} {verified && <VerifiedIcon className={'channelTitle__verified'}/>}
-        </p>
+        <div className={'channelTitle'}>
+            <p className={'channelTitle__title'}>{title}</p>
+            <div>{verified && <VerifiedIcon className={'channelTitle__verified'}/>}</div>
+        </div>
     )
 }
 

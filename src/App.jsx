@@ -22,7 +22,7 @@ function App() {
     }, [])
 
     if(!initialized || !location)
-        return <div>Loading...</div>
+        return <h2>Loading...</h2>
 
     return (
         <div className='app'>
@@ -34,7 +34,7 @@ function App() {
                         <Route exact path={'/'} render={() => <HomePage/>}/>
                         <Route exact path={'/login'} render={() => <LogInPage/>}/>
                         <Route path={'/search/:searchTerm?'} render={() => <SearchPage/>}/>
-                        <Route path={'*'} render={() => <div>404<br/>PAGE NOT FOUND</div>}/>
+                        <Route path={'*'} render={() => <div>404<br/>PAGE NOT FOUND. Try '/login' or '/'</div>}/>
                     </Switch>
                 </div>
             </div>

@@ -1,0 +1,13 @@
+.toolIcon {
+    display: flex;
+    align-self: center;
+    margin-right: 24px ;
+}
+
+.tooltip {
+    font-size: 18px;
+}
+
+.icon {
+    color: #606060;
+}

@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     width: 40%;
+    margin-left: 24px;
 }
 
 .header__i {
@@ -51,7 +52,7 @@
 
 .header__inputButton {
     font-size: 5px;
-    width: 50px !important;
+    width: 60px !important;
     height: 32px;
     background-color: #f8f8f8;
     border: 1px solid lightgray;
@@ -78,26 +79,20 @@
     align-items: center;
 }
 
-.header__icon {
-    margin-right: 20px;
-    color: #606060
-}
-
 .header__loginButton {
-    display: flex;
+    display: flex !important;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-around !important;
     width: 102px;
     height: 40px;
     text-transform: uppercase;
     font-size: 14px;
-    font-weight: 600;
-    color: #065fd4;
+    font-weight: 600 !important;
+    color: #065fd4 !important;
     background-color: transparent;
-    border: 1px solid #065fd4;
+    border: 1px solid #065fd4 !important;
     border-radius: 2px;
     cursor: pointer;
-    outline: none;
 }
 
 @media (max-width: 1100px) {
@@ -106,7 +101,10 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 676px) {
+    .header{
+        min-width: 100%;
+    }
     .header__icons {
         display: none;
     }

@@ -1,10 +1,52 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './SearchPage.css'
 import {TuneOutlined} from '@material-ui/icons'
 import ChannelRow from '../common/ChannelRow/ChannelRow'
 import VideoRow from '../common/VideoRow/VideoRow'
+import {useDispatch, useSelector} from 'react-redux'
+import {actions, getChannelsByTerm, getVideosByTerm} from '../../redux/search-reducer'
+import {useParams} from 'react-router'
 
 const SearchPage = () => {
+    const term = useSelector(store => store.searchPage.term)
+    let videos = useSelector(store => store.searchPage.videos)
+    let channels = useSelector(store => store.searchPage.channels)
+
+    const dispatch = useDispatch()
+    const params = useParams()
+
+    useEffect(() => {
+        dispatch(actions.setTerm({query: params.searchTerm}))
+    }, [])
+
+    useEffect(() => {
+        const min = Math.ceil(1)
+        const max = Math.floor(4)
+        dispatch(getVideosByTerm(term, 20))
+        dispatch(getChannelsByTerm(term, Math.floor(Math.random() * (max - min)) + min))
+    }, [dispatch, term])
+
+    const videoItems = videos.reverse().map(v => <VideoRow
+        key={v.id.videoId}
+        image={v.snippet.thumbnails.high.url}
+        title={v.snippet.title}
+        description={v.snippet.description}
+        channelTitle={v.snippet.channelTitle}
+        channelId={v.snippet.channelId}
+        videoId={v.id.videoId}
+        timestamp={v.snippet.publishedAt}
+        verifiedChannel
+    />)
+
+    const channelItems = channels.map(c => <ChannelRow
+        key={c.snippet.channelId}
+        channelId={c.id.channelId}
+        image={c.snippet.thumbnails.medium.url}
+        channel={c.snippet.channelTitle}
+        description={c.snippet.description}
+        verified
+    />)
+
     return (
         <div className={'searchPage'}>
             <div className="searchPage__page">
@@ -13,35 +55,9 @@ const SearchPage = () => {
                     <h2>Filter</h2>
                 </div>
                 <hr/>
-                <ChannelRow
-                    image={'https://yt3.ggpht.com/ytc/AAUvwnhFDxAAzB__Uk69EStxwWqYw6Hcq75ChiuaAaLWzA=s176-c-k-c0x00ffffff-no-rj-mo'}
-                    channel={'Eiro Nareth'}
-                    description={'Hi there, my name is Eiro Nareth, I am a guitar player and composer. On this channel I publish guitar covers of different famous songs...'}
-                    subs={'1.13M'}
-                    totalVideos={195}
-                    verified
-                />
+                {channelItems}
                 <hr/>
-                <VideoRow
-                    image={'https://i.ytimg.com/vi/X9x87dguFHw/maxresdefault.jpg'}
-                    title={'Gotye - Somebody that I used to know⎪Acoustic guitar fingerstyle cover'}
-                    description={'If you are looking for really cool guitar lessons you should check out GuitarTricks FREE 14 day trial ...'}
-                    timestamp={'1 year ago'}
-                    views={'905K'}
-                    channelImage={'https://yt3.ggpht.com/ytc/AAUvwnhFDxAAzB__Uk69EStxwWqYw6Hcq75ChiuaAaLWzA=s68-c-k-c0x00ffffff-no-rj'}
-                    channelTitle={'Eiro Nareth'}
-                    verifiedChannel
-                />
-                <VideoRow
-                    image={'https://i.ytimg.com/vi/X9x87dguFHw/maxresdefault.jpg'}
-                    title={'Gotye - Somebody that I used to know⎪Acoustic guitar fingerstyle cover'}
-                    description={'If you are looking for really cool guitar lessons you should check out GuitarTricks FREE 14 day trial ...'}
-                    timestamp={'1 year ago'}
-                    views={'905K'}
-                    channelImage={'https://yt3.ggpht.com/ytc/AAUvwnhFDxAAzB__Uk69EStxwWqYw6Hcq75ChiuaAaLWzA=s68-c-k-c0x00ffffff-no-rj'}
-                    channelTitle={'Eiro Nareth'}
-                    verifiedChannel
-                />
+                {videoItems}
                 <hr/>
             </div>
         </div>
