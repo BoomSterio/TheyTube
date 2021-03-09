@@ -31,7 +31,7 @@ const VideoRow = ({variant = 'default',image, title, description, channelTitle, 
         return () => {
             isCancelled = true
         }
-    }, [])
+    }, [videoId, channelId])
 
     return (
         <div className={variant === 'default' ? 'videoRow' : variant ==='compact' && 'videoRow-compact'} onClick={() => history.push(`/video/${videoId}`)}>

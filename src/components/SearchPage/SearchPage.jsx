@@ -37,7 +37,7 @@ const SearchPage = () => {
         description={v.snippet.description}
         channelTitle={v.snippet.channelTitle}
         channelId={v.snippet.channelId}
-        videoId={v.id.videoId}
+        videoId={v.id instanceof Object ? v.id.videoId : v.id}
         timestamp={v.snippet.publishedAt}
         verifiedChannel
     />)

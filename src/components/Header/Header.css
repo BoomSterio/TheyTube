@@ -108,6 +108,9 @@
     .header__icons {
         display: none;
     }
+    .header__mic {
+        display: none;
+    }
     .header__input {
         width: 60%;
         min-width: 275px;

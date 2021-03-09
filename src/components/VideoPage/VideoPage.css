@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     width: 90%;
+    padding-right: 20px;
 }
 
 .videoPage__relatedVideos {
@@ -22,6 +23,7 @@
         flex-direction: column;
     }
     .videoPage__videoSection {
+        padding: 0;
         width: 100%;
     }
 }

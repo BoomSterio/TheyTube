@@ -3,12 +3,6 @@
 }
 
 .app__content {
-    flex: 0.86;
+    width: 100%;
     background-color: #f9f9f9;
-}
-
-@media (max-width: 1300px) {
-    .app__content {
-        flex: .92;
-    }
 }

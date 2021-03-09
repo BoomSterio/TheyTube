@@ -23,7 +23,7 @@ const HomePage = () => {
         title={v.snippet.title}
         channelTitle={v.snippet.channelTitle}
         channelId={v.snippet.channelId}
-        videoId={v.id.videoId}
+        videoId={v.id instanceof Object ? v.id.videoId : v.id}
         views={v.statistics.viewCount}
         timestamp={v.snippet.publishedAt}
         verifiedChannel

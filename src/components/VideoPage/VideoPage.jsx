@@ -6,9 +6,9 @@ import {getRelatedVideos} from '../../redux/search-reducer'
 import VideoRow from '../common/VideoRow/VideoRow'
 import VideoPlayer from './VideoPlayer/VideoPlayer'
 import {videosAPI} from '../../api/videos-api'
+import VideoInfo from './VideoInfo/VideoInfo'
 
 const VideoPage = () => {
-    const [videoInfo, setVideoInfo] = useState({})
     const related = useSelector(state => state.searchPage.videos)
     const params = useParams()
     const history = useHistory()
@@ -19,22 +19,15 @@ const VideoPage = () => {
         if(!params.videoId)
             return
 
-        async function fetchData() {
-            let statistics = await videosAPI.getVideoStatistics(params.videoId)
-            let snippet = await videosAPI.getVideoSnippet(params.videoId)
-            setVideoInfo({
-                statistics: statistics.statistics,
-                snippet: snippet.snippet
-            })
-            debugger
-            dispatch(getRelatedVideos(params.videoId))
+        function fetchData() {
+            dispatch(getRelatedVideos(params.videoId, 14))
         }
         fetchData()
 
         return () => {
             isCancelled = true
         }
-    }, [])
+    }, [params.videoId])
 
     const videoItems = related.map(v => (v && v.snippet) ? <VideoRow
         key={v.id.videoId}
@@ -56,9 +49,7 @@ const VideoPage = () => {
         <div className={'videoPage'}>
             <div className={'videoPage__videoSection'}>
                 <VideoPlayer videoId={params.videoId}/>
-                <div>
-                    dsada
-                </div>
+                <VideoInfo videoId={params.videoId}/>
             </div>
             <div className={'videoPage__relatedVideos'}>
                 {videoItems}

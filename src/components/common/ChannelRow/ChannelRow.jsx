@@ -32,7 +32,7 @@ const ChannelRow = ({image, channel, channelId, description, verified}) => {
         return () => {
             isCancelled = true
         }
-    }, [])
+    }, [channelId])
 
     return (
         <div className={'channelRow'}>

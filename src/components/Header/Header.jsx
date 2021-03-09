@@ -15,7 +15,7 @@ import ToolIcon from '../common/ToolIcon/ToolIcon'
 import {useDispatch, useSelector} from 'react-redux'
 import {actions} from '../../redux/search-reducer'
 
-const Header = () => {
+const Header = ({toggleSidebar}) => {
     const query = useSelector(store => store.searchPage.term.query)
     const [searchQuery, setSearchQuery] = useState(query)
 
@@ -35,7 +35,7 @@ const Header = () => {
     return (
         <div className='header'>
             <div className="header__left">
-                <MenuRoundedIcon style={{color: '#606060'}}/>
+                <MenuRoundedIcon onClick={toggleSidebar} style={{color: '#606060'}}/>
                 <Link to={'/'} style={{height: '19px'}}>
                     <img
                         src={'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/1920px-YouTube_Logo_2017.svg.png'}

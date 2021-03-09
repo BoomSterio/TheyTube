@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import './App.css'
 import store from './redux/redux-store'
 import {Route, Switch} from 'react-router'
@@ -11,10 +11,17 @@ import {Provider, useDispatch, useSelector} from 'react-redux'
 import LogInPage from './components/LogInPage/LogInPage'
 import {initializeApp} from './redux/app-reducer'
 import VideoPage from './components/VideoPage/VideoPage'
+import Slide from '@material-ui/core/Slide'
+import Collapse from '@material-ui/core/Collapse'
 
 function App() {
     const initialized = useSelector(store => store.app.initialized)
     let location = useSelector(store => store.geo.location)
+    const [showSidebar, setShowSidebar] = useState(false)
+
+    const toggleSidebar = () => {
+        setShowSidebar(!showSidebar)
+    }
 
     const dispatch = useDispatch()
 
@@ -22,14 +29,16 @@ function App() {
         dispatch(initializeApp())
     }, [])
 
-    if(!initialized || !location)
+    if (!initialized || !location)
         return <h2>Loading...</h2>
 
     return (
         <div className='app'>
-            <Header/>
+            <Header toggleSidebar={toggleSidebar}/>
             <div className='app__page'>
-                <Sidebar/>
+                <Collapse in={showSidebar} timeout={200} mountOnEnter unmountOnExit>
+                        <Sidebar/>
+                </Collapse>
                 <div className='app__content'>
                     <Switch>
                         <Route exact path={'/'} render={() => <HomePage/>}/>
@@ -47,7 +56,6 @@ function App() {
 const MainApp = () => {
     return (
         <BrowserRouter>
-            {/*todo: implement store with Redux*/}
             <Provider store={store}>
                 <App/>
             </Provider>

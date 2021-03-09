@@ -1,0 +1,68 @@
+.videoInfo {
+    padding-top: 20px;
+}
+
+.videoInfo h2 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.videoInfo__statistics {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #606060;
+    border-bottom: 1px solid lightgray;
+}
+
+.videoInfo__buttons {
+    display: flex;
+    align-items: center;
+}
+
+.videoInfo__buttons p {
+    color: #606060;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+.videoInfo__rating {
+    display: flex;
+    align-items: center;
+    color: #909090;
+    padding: 10px 4px;
+    border-bottom: 2px solid #909090;
+}
+
+.videoInfo__rateButton {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.videoInfo__actions {
+    display: flex;
+    align-items: center;
+}
+
+.videoInfo__button {
+    display: flex;
+    align-items: center;
+    color: #909090;
+    margin-left: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+    .videoInfo__statistics {
+        flex-direction: column;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .videoInfo__buttons {
+        flex-direction: column;
+    }
+}

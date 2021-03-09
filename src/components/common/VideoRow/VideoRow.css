@@ -59,6 +59,7 @@
     width: 360px;
     height: 202px;
     object-fit: cover;
+    image-rendering: smooth;
 }
 
 .videoRow__thumbnail-compact {
