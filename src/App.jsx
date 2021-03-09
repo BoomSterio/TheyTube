@@ -10,6 +10,7 @@ import SearchPage from './components/SearchPage/SearchPage'
 import {Provider, useDispatch, useSelector} from 'react-redux'
 import LogInPage from './components/LogInPage/LogInPage'
 import {initializeApp} from './redux/app-reducer'
+import VideoPage from './components/VideoPage/VideoPage'
 
 function App() {
     const initialized = useSelector(store => store.app.initialized)
@@ -34,6 +35,7 @@ function App() {
                         <Route exact path={'/'} render={() => <HomePage/>}/>
                         <Route exact path={'/login'} render={() => <LogInPage/>}/>
                         <Route path={'/search/:searchTerm?'} render={() => <SearchPage/>}/>
+                        <Route path={'/video/:videoId?'} render={() => <VideoPage/>}/>
                         <Route path={'*'} render={() => <div>404<br/>PAGE NOT FOUND. Try '/login' or '/'</div>}/>
                     </Switch>
                 </div>

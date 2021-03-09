@@ -1,0 +1,33 @@
+.videoPage {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px 35px;
+}
+
+.videoPage__videoSection {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.videoPage__relatedVideos {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-left: 5px;
+}
+
+@media (max-width: 1100px) {
+    .videoPage {
+        flex-direction: column;
+    }
+    .videoPage__videoSection {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .videoPage {
+        padding: 5px;
+    }
+}

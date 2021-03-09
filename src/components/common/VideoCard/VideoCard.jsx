@@ -4,11 +4,12 @@ import {Avatar} from '@material-ui/core'
 import {MoreVert} from '@material-ui/icons'
 import ChannelTitle from '../ChannelTitle/ChannelTitle'
 import channelsAPI from '../../../api/channels-api'
-import moment from 'moment'
 import {numberHelpers} from '../../../utils/number-helpers'
+import {useHistory} from 'react-router'
 
-const VideoCard = ({image, title, channelTitle, views, timestamp, channelId, verifiedChannel}) => {
+const VideoCard = ({image, title, channelTitle, views, timestamp, channelId, videoId, verifiedChannel}) => {
     const [channelImage, setChannelImage] = useState(null)
+    const history = useHistory()
     const viewsShortened = numberHelpers.abbreviateInteger(views)
     const timeAgo = numberHelpers.dateToTimeAgo(timestamp)
 
@@ -23,7 +24,7 @@ const VideoCard = ({image, title, channelTitle, views, timestamp, channelId, ver
     }, [channelId])
 
     return (
-        <div className={'video'}>
+        <div className={'video'} onClick={() => history.push(`/video/${videoId}`)}>
             <img className='video__thumbnail' src={image} alt="thumbnail"/>
             <div className={'video__info'}>
                 <Avatar className={'video__avatar'} src={channelImage} alt={channelTitle}/>

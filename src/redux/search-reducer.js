@@ -39,6 +39,10 @@ export const actions = {
     setChannels: (channels) => ({type: 'searchPage/SET_CHANNELS', channels})
 }
 
+export const getRelatedVideos = (videoId, pageSize = 10) => async (dispatch) => {
+    let data = await videosAPI.getRelatedVideos(videoId, pageSize)
+    dispatch(actions.setVideos(data))
+}
 export const getVideosByTerm = (term, pageSize = 10) => async (dispatch) => {
     let data = await videosAPI.getVideosByTerm(term, pageSize)
     dispatch(actions.setVideos(data))

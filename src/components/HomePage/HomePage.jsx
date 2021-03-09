@@ -23,6 +23,7 @@ const HomePage = () => {
         title={v.snippet.title}
         channelTitle={v.snippet.channelTitle}
         channelId={v.snippet.channelId}
+        videoId={v.id.videoId}
         views={v.statistics.viewCount}
         timestamp={v.snippet.publishedAt}
         verifiedChannel
@@ -35,10 +36,11 @@ const HomePage = () => {
                 {videoItems}
                 <VideoCard
                     image={'https://i.ytimg.com/vi/FStL8R_ENVE/maxresdefault.jpg'}
-                    title={'Game of Thrones || Don\'t Panic'}
+                    title={'TEST ITEM: Game of Thrones || Don\'t Panic'}
                     channelTitle={'XTestChannelX'}
                     views={'340512'}
                     timestamp={'2021-02-12T06:44:22Z'}
+                    videoId={'nRjWDV7ppAg'}
                     verifiedChannel
                 />
             </div>

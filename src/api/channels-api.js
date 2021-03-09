@@ -4,11 +4,10 @@ import {youtube} from './apiConfig'
 export const channelsAPI = {
     getChannelsByTerm(term, maxResults) {
         return axios
-            .get(`${youtube.baseURL}search?part=snippet&maxResults=1&q=${term.query}&key=${youtube.key}`)
+            .get(`${youtube.baseURL}search?part=snippet&maxResults=${maxResults}&q=${term.query}&key=${youtube.key}`)
             .then(response => response.data.items)
     },
     getChannelStatistics(channelId) {
-        debugger
         return axios
             .get(`${youtube.baseURL}channels?part=statistics&id=${channelId}&key=${youtube.key}`)
             .then(response => response.data.items[0])

@@ -20,12 +20,16 @@ const SearchPage = () => {
     }, [])
 
     useEffect(() => {
-        const min = Math.ceil(1)
-        const max = Math.floor(4)
-        dispatch(getVideosByTerm(term, 20))
-        dispatch(getChannelsByTerm(term, Math.floor(Math.random() * (max - min)) + min))
+        /*const min = Math.ceil(1)
+        const max = Math.floor(3)*/
+
+        if(term.query) {
+            dispatch(getVideosByTerm(term, 20))
+            dispatch(getChannelsByTerm(term, 1/*Math.floor(Math.random() * (max - min)) + min)*/))
+        }
     }, [dispatch, term])
 
+    debugger
     const videoItems = videos.reverse().map(v => <VideoRow
         key={v.id.videoId}
         image={v.snippet.thumbnails.high.url}
